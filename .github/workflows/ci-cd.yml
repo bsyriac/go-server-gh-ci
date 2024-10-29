@@ -29,7 +29,21 @@ jobs:
               run: go build ./cmd/main.go
 
             - name: run tests
-              run: go test ./...
+              id: run_tests
+              run: 
+                echo "Running test cases..."
+                go test ./...
+            
+            - name: check tests status
+              run: |
+                if [ "${{ steps.run_tests.result }}" == "success" ]; then 
+                    echo TESTS SUCCESS
+                else 
+                    echo SOME TESTS FAILED, check logs....
+                    exit 1
+                fi
+               
+
 
             
 
