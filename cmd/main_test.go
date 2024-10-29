@@ -36,6 +36,6 @@ func TestRootRoute(t *testing.T) {
 	assert.Equal(t, http.StatusOK, w.Code)
 
 	// Check the response body
-	expected := "Hello,!"
+	expected := "Hello, World!"
 	assert.Equal(t, expected, w.Body.String())
 }
