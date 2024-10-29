@@ -36,7 +36,7 @@ jobs:
             
             - name: check tests status
               run: |
-                if [ "${{ steps.run_tests.result }}" == "success" ]; then 
+                if [ "${{ steps.run_tests.outcome }}" == "success" ]; then 
                     echo TESTS SUCCESS
                 else 
                     echo SOME TESTS FAILED, check logs....
